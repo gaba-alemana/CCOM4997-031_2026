@@ -54,22 +54,37 @@ class Circle {
         // Calculating the circumference of the circle
         double calc_circumference() {
 
-            circumf = radius * pi * 2 ;
-            return circumf ;
+            return radius * pi * 2 ;
+        }
+
+        /*  Overloading operators
+            By overloading operators, we want to use C++ built in operators with user defined data types.
+            Overloading operators work, in a way, like functions. 
+
+            Syntax: 
+
+                We specify the return type for when using the operator.
+                Include the "operator" keyword followed by the operator we want to define for our class objects.
+                We then include parameters either passed by reference or by value.
+                
+
+            Syntax:   
+                    return_type operator_keyword operator_to_overload (parameters) {}
+                    Circle operator+ (Circle circle2) 
+        */
+
+        /*  Overloading the addition operator
+            We want to be able to add circle objects  */ 
+        Circle operator+ (Circle &circle2) {
+
+            return Circle(radius + circle2.radius) ;
         }
 
 
-        /*  Overloading the assignment operator
-            
-        
-        */ 
-        Circle operator= (Circle circle2) {
+        /*  Overloading the multiplication operator
+            We want to be able to multiply circle objects  */ 
+        Circle operator* (Circle &circle2) {
 
-
+            return Circle(radius * circle2.radius) ;
         }
-
-
-
-
-
 } ;
