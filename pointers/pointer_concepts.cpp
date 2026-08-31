@@ -122,11 +122,11 @@ int main(){
     }
 
     /* 
-      Why does this work? 
-      When adding an integer to a pointer, we are adding the size of the data type it points to.
-      Since an int occupies 8 bytes, arr_ptr + 1 = arr_ptr + 8 bytes, arr_ptr + 2 = arr_ptr + 16 bytes, and so on.
-      Pointer arithmetic works with the size or space the data type the pointer points to occupies.
-      We can also use the unary increment and decrement operator with pointers.
+        Why does this work? 
+        When adding an integer to a pointer, we are adding the size of the data type it points to.
+        Since an int occupies 8 bytes, arr_ptr + 1 = arr_ptr + 8 bytes, arr_ptr + 2 = arr_ptr + 16 bytes, and so on.
+        Pointer arithmetic works with the size or space the data type the pointer points to occupies.
+        We can also use the unary increment and decrement operator with pointers.
 
     */
 
