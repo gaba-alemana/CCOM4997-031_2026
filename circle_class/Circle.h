@@ -1,5 +1,4 @@
 # include <iostream>
-# include <cmath> // To use cmath.pi for calculations
 # include <stdexcept> // To throw standard exceptions/errors for input validation
 
 
@@ -11,7 +10,7 @@ class Circle {
     private:
         
         double radius ;
-        double pi = cmath.pi ;
+        const double pi = 3.14 ;
 
 
     // Defining methods (functions)
@@ -29,7 +28,7 @@ class Circle {
         // Circle() { radius = 5.0 ; }
 
 
-        // Function for the user to set/change the radius
+        // Function for the user to set/change the radius (Setter function)
         void set_radius(double rad) {
 
             // Input validation (the radius cannot be less than zero)
@@ -57,6 +56,15 @@ class Circle {
             return radius * pi * 2 ;
         }
 
+
+        /*  Function for the user to see the radius (Getter function)
+            The keyword const indicates that the attributes of the object will not be changed.  */
+        double get_radius() const {
+
+            return radius ;
+        }
+
+
         /*  Overloading operators
             By overloading operators, we want to use C++ built in operators with user defined data types.
             Overloading operators work, in a way, like functions. 
@@ -67,10 +75,8 @@ class Circle {
                 Include the "operator" keyword followed by the operator we want to define for our class objects.
                 We then include parameters either passed by reference or by value.
                 
-
-            Syntax:   
-                    return_type operator_keyword operator_to_overload (parameters) {}
-                    Circle operator+ (Circle circle2) 
+                return_type operator_keyword operator_to_overload (parameters) {}
+                Circle operator+ (Circle circle2) 
         */
 
         /*  Overloading the addition operator
