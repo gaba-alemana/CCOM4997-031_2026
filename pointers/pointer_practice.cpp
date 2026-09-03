@@ -42,7 +42,7 @@ class IntArray {
             }
 
             else{
-                // "Move" the amount of used spaces to dereference pointer and add the int 
+                // "Move" the amount of used spaces to dereference the pointer and add an int 
                 *(arr + used) = num ;
                 ++used ; 
             }
@@ -88,6 +88,30 @@ class IntArray {
 
             return ptr_max ;
         }
+
+
+
+        // Exercise 2 Member Function
+
+        // swap()
+        void swap() {
+
+            int temp ; // Temporary variable to hold an int when swapping
+            
+            /*  Have two variables to use as indexes 
+                (one to start at the beginning and the other to start at the tail)
+            */
+
+            for (int i = 0, k = used - 1; i < (used / 2); i++, k--){
+
+                temp = *(arr + i) ; // Save int to swap on a temporary variable
+                *(arr + i) = *(arr + k) ; 
+                *(arr + k) = temp ; 
+
+                // std::cout << *(arr + i) << std::endl ;
+
+            }
+        }
         
 
 };
@@ -98,7 +122,7 @@ int main () {
 
     // Preparing array for the exercises
 
-    int len = 10 ;
+    int len = 7 ;
     IntArray array(len) ; // Create instance of an IntArray
     
     // Initializing array with random numbers
@@ -121,19 +145,18 @@ int main () {
     // Call max()
     int *ptr_max = NULL ;
     ptr_max = array.max() ;
-    std::cout << "The biggest number is " << *ptr_max << std::endl ;
+    std::cout << "The biggest number is " << *ptr_max << std::endl << std::endl ;
 
 
-     /* Exercise 2: Create a void member function called swap() for the IntArray class that...
+    /* Exercise 2: Create a void member function called swap() for the IntArray class that...
        iterates through the array with pointers, and swaps the elements of the array.
        Test it in main. 
     */
 
     // Call swap()
+    array.swap() ;
+    std::cout << "After swap..." << std::endl ;
     array.display() ;
-
-    
-
 
     return 0 ;
 }
