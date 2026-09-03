@@ -50,16 +50,5 @@ int main() {
 
     std::cout << "Max elements in the arrays: " << int_max << " " << char_max << " " << float_max << std::endl ;
 
-
-
-
-
-
-
-
-
-
-
-
     return 0 ;
 }
