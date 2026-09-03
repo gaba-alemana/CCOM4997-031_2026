@@ -98,7 +98,7 @@ int main(){
 
     /* 
         Pointer usage with arrays
-        We can declare a pointer and initialize it to the first element of an array of a specific data type.
+        We can declare a pointer and initialize it to an array (the first element of an array).
         This lets us iterate through the array.
     */
     const int size = 10 ;

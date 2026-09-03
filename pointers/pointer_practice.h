@@ -6,9 +6,9 @@ class IntArray {
     protected:
         int *arr = NULL ; // Pointer to an int
         int used = 0 ; // Track how many integers we have in the array
+        int length = 0 ; // Length for the dynamic array
 
     public:
-        int length = 0 ; // Length for the dynamic array
 
         // Set length of dynamic array
         void set_length(int len){
