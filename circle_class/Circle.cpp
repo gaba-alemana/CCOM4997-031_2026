@@ -31,16 +31,15 @@ int main() {
 
 
     // Defining and initializing circle4 as the multiplication of circle1 and circle2
-    std::cout << "Multiplying the radius of circle1 and circle2 to create circle3!" << std::endl ;
+    std::cout << "Multiplying the radius of circle1 and circle2 to create circle4!" << std::endl ;
     Circle circle4 = circle1 * circle2 ;
     std::cout << "The radius of circle4 is: " << circle4.get_radius() << "\n\n" ;
 
 
-    // Testing the default assignment overload operator
-    std::cout << "Copying circle4 on circle5." << std::endl ;
-    Circle circle5 = circle4 ;
-    std::cout << "The radius of circle5 is: " << circle5.get_radius() << std::endl ;
-
+    // Defining and initializing circle5 as the subtraction of circle1 and circle2
+    std::cout << "Subtracting the radius of circle1 and circle2 to create circle5!" << std::endl ;
+    Circle circle5 = circle2 - circle1 ;
+    std::cout << "The radius of circle4 is: " << circle5.get_radius() << "\n\n" ;
 
     return 0 ;
 }

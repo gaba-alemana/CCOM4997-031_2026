@@ -1,6 +1,7 @@
 # include <iostream>
 # include <stdexcept> // To throw standard exceptions/errors for input validation
 
+const double pi = 3.14 ; // Global constant pi
 
 // Creating a Circle Class
 class Circle {
@@ -8,9 +9,8 @@ class Circle {
     /*  Defining and initializing the attributes (variables)
         Setting them as private to avoid outside modification   */ 
     private:
-        
+
         double radius ;
-        const double pi = 3.14 ;
 
 
     // Defining methods (functions)
@@ -92,5 +92,18 @@ class Circle {
         Circle operator* (Circle &circle2) {
 
             return Circle(radius * circle2.radius) ;
+        }
+
+        
+        /*  Overloading the subtraction operator
+            We want to be able to subtract circle objects  */ 
+        Circle operator- (Circle &circle2) {
+
+            int sub = radius - circle2.radius ;
+            if (sub < 0){
+                throw std::invalid_argument("The radius of a circle must be a positive number.") ;
+            }
+
+            return Circle(radius - circle2.radius) ;
         }
 } ;
