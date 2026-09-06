@@ -1,6 +1,6 @@
 # include <iostream>
 
-// Defining dynamic array class for the exercises
+// Defining dynamic int array class for the exercises
 class IntArray {
 
     protected:
@@ -10,8 +10,11 @@ class IntArray {
 
     public:
 
+        // Default constructor
+        IntArray() { }
+
         // Set length of dynamic array
-        void set_length(int len){
+        void set_length(int len) {
             
             length = len;
             arr = new int[length];
@@ -29,8 +32,44 @@ class IntArray {
             if (arr != NULL) delete[] arr ;
         }
 
+        
+        // Overload assignment operator 
+        IntArray& operator= (IntArray &array2){
+
+            // Copy all attributes from other instance
+            arr = array2.arr ;
+            used = array2.used ;
+            length = array2.length ;
+
+            // Change other array pointer to NULL and update attributes
+            array2.arr = NULL ;
+            array2.used = 0 ;
+            array2.length = 0 ;
+
+            return *this ;
+        }
+
+
+        // Resize the IntArray
+        void resize(int n) {
+
+            // Create new circle with *this size + n new spaces
+            IntArray arr2 = IntArray(length + n) ;
+
+            // Save the elements of this array in the new instance array
+            for(int i = 0; i < used; i++){
+
+                arr2.insert(*(arr + i)) ;
+            }
+
+            delete[] arr ; // Eliminate array of this instance
+            *this = arr2 ; // Copy other instance to this one
+
+        }
+
+
         // Insert int at the end of the array
-        void insert(int num){
+        void insert(int num) {
             
             if (used == length){
                 std::cout << "Dynamic array full, resize..." << std::endl ;
@@ -43,11 +82,13 @@ class IntArray {
             }
         }
 
+
         // Display the IntArray object (Other option: Overload the << insertion operator)
-        void display(){
+        void display() const {
             
             if (arr == NULL){
                 std::cout << "The int array is empty." << std::endl ;
+                std::cout << used << " spaces used of " << length << std::endl << std::endl ;
             }
 
             else{ 
@@ -57,6 +98,7 @@ class IntArray {
                 }
 
                 std::cout << std::endl ;
+                std::cout << used << " spaces used of " << length << std::endl << std::endl ;
             }
         }
         
@@ -65,7 +107,7 @@ class IntArray {
         // Exercise 1 Member Function
 
         // max()
-        int* max() {
+        int* max() const {
 
             int max_num = 0 ; // Variable to store the biggest int
             int * ptr_max = NULL ; // Variable to store the pointer

@@ -45,5 +45,16 @@ int main () {
     std::cout << "After swap..." << std::endl ;
     array.display() ;
 
+    // Resizing array 
+    array.resize(3) ;
+    std::cout << "Displaying array after resizing..." << std::endl ;
+    array.display() ;
+
+    array.insert(9) ;
+    array.insert(25) ;
+    array.insert(5) ;
+    array.display() ;
+
+
     return 0 ;
 }
