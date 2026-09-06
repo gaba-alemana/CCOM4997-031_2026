@@ -1,8 +1,6 @@
 # include <iostream>
 # include <stdexcept> // To throw standard exceptions/errors for input validation
 
-const double pi = 3.14 ; // Global constant pi
-
 // Creating a Circle Class
 class Circle {
     
@@ -11,6 +9,7 @@ class Circle {
     private:
 
         double radius ;
+        const double pi = 3.1415 ; // Global constant pi
 
 
     // Defining methods (functions)
@@ -43,7 +42,7 @@ class Circle {
 
         /*  Parameterized constructor
             Create a circle instance with a radius specified by the user    */
-        Circle(double rad ) {
+        Circle(double rad) {
 
             // Call set_radius function which checks for input validity to set the radius
             set_radius(rad);
@@ -51,14 +50,21 @@ class Circle {
 
 
         // Calculating the circumference of the circle
-        double calc_circumference() {
+        // The keyword const indicates that the attributes of the object will not be changed. 
+        double calc_circumference() const {
 
             return radius * pi * 2 ;
         }
 
 
-        /*  Function for the user to see the radius (Getter function)
-            The keyword const indicates that the attributes of the object will not be changed.  */
+        // Calculating the area of the circle
+        double calc_area() const {
+
+            return radius * radius * pi ;
+        }
+
+
+        // Function for the user to see the radius (Getter function)
         double get_radius() const {
 
             return radius ;
@@ -81,7 +87,7 @@ class Circle {
 
         /*  Overloading the addition operator
             We want to be able to add circle objects  */ 
-        Circle operator+ (Circle &circle2) {
+        Circle operator+ (Circle const &circle2) const {
 
             return Circle(radius + circle2.radius) ;
         }
@@ -89,7 +95,7 @@ class Circle {
 
         /*  Overloading the multiplication operator
             We want to be able to multiply circle objects  */ 
-        Circle operator* (Circle &circle2) {
+        Circle operator* (Circle const &circle2) const {
 
             return Circle(radius * circle2.radius) ;
         }
@@ -97,7 +103,7 @@ class Circle {
         
         /*  Overloading the subtraction operator
             We want to be able to subtract circle objects  */ 
-        Circle operator- (Circle &circle2) {
+        Circle operator- (Circle const &circle2) const {
 
             int sub = radius - circle2.radius ;
             if (sub < 0){
@@ -105,5 +111,17 @@ class Circle {
             }
 
             return Circle(radius - circle2.radius) ;
+        }
+
+        // Overloading the assignment operator to copy one circle instance into another
+        Circle& operator= (Circle const &circle2) {
+            
+            // Checking if the instances are not the same
+            if (radius != circle2.radius){
+
+                radius = circle2.radius ;
+            }
+
+            return *this ; // Returns this class instance
         }
 } ;

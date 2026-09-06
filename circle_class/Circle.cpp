@@ -27,7 +27,8 @@ int main() {
     Circle circle3 = circle1 + circle2 ;
 
     std::cout << "The radius of circle3 is: " << circle3.get_radius() << std::endl ;
-    std::cout << "The circumference of circle3 is: " << circle3.calc_circumference() << "\n\n" ;
+    std::cout << "The circumference of circle3 is: " << circle3.calc_circumference() << std::endl ;
+    std::cout << "The area of circle3 is: " << circle3.calc_area() << "\n\n" ;
 
 
     // Defining and initializing circle4 as the multiplication of circle1 and circle2
@@ -36,10 +37,12 @@ int main() {
     std::cout << "The radius of circle4 is: " << circle4.get_radius() << "\n\n" ;
 
 
-    // Defining and initializing circle5 as the subtraction of circle1 and circle2
-    std::cout << "Subtracting the radius of circle1 and circle2 to create circle5!" << std::endl ;
-    Circle circle5 = circle2 - circle1 ;
-    std::cout << "The radius of circle4 is: " << circle5.get_radius() << "\n\n" ;
+    // Defining and initializing circle5 as the subtraction of circle1 and circle2 and testing the assignment operator
+    std::cout << "Subtracting the radius of circle2 and circle1 to create circle5!" << std::endl ;
+    Circle circle5 ;
+    circle5 = circle2 - circle1 ;
+
+    std::cout << "The radius of circle5 is: " << circle5.get_radius() << "\n\n" ;
 
     return 0 ;
 }

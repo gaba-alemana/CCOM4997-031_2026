@@ -8,6 +8,7 @@
 ```
 private:
   double radius ;
+  const double pi = 3.1415 ;
 
 ```
 
@@ -17,9 +18,11 @@ public:
   set_radius() ;
   get_radius() ;
   calc_circumference() ;
+  calc_area() ;
   overload+ () ;
   overload* () ;
   overload- () ;
+  overload= () ;
 
   
 ```
