@@ -9,19 +9,21 @@ int main () {
 
     // Preparing array for the exercises
 
-    int len = 7 ;
-    IntArray array(len) ; // Create instance of an IntArray
+    int len = 10 ;
+    IntArray array_a(len), array_b(len) ; // Create instance of an IntArray
+
     
     // Initializing array with random numbers
     srand(time(0)) ; // Use the current time as a seed so that rand() returns different ints on each run
 
     for (int i = 0; i < len; i++){
 
-        array.insert(rand() % 51) ; // Generates numbers in [0, 50]
+        array_a.insert(rand() % 51) ; // Generates numbers in [0, 50]
+        array_b.insert(rand() % 51) ;
     }
 
     // Display array
-    array.display() ;
+    array_a.display() ;
 
 
     /* Exercise 1: Create a member function called max() for the IntArray class that...
@@ -31,7 +33,7 @@ int main () {
 
     // Call max()
     int *ptr_max = NULL ;
-    ptr_max = array.max() ;
+    ptr_max = array_a.max() ;
     std::cout << "The biggest number is " << *ptr_max << std::endl << std::endl ;
 
 
@@ -41,19 +43,22 @@ int main () {
     */
 
     // Call swap()
-    array.swap() ;
+    array_a.swap() ;
     std::cout << "After swap..." << std::endl ;
-    array.display() ;
+    array_a.display() ;
 
-    // Resizing array 
-    array.resize(3) ;
+
+    // Testing array resize
+    array_a.resize(2) ;
     std::cout << "Displaying array after resizing..." << std::endl ;
-    array.display() ;
+    array_a.display() ;
 
-    array.insert(9) ;
-    array.insert(25) ;
-    array.insert(5) ;
-    array.display() ;
+    array_a.insert(9) ;
+    array_a.display() ;
+    array_a.insert(25) ;
+    array_a.display() ;
+    array_a.insert(5) ;
+    array_a.display() ;
 
 
     return 0 ;

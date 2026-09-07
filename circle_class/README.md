@@ -15,14 +15,14 @@ private:
 #### Métodos
 ```
 public:
-  set_radius() ;
-  get_radius() ;
-  calc_circumference() ;
-  calc_area() ;
-  overload+ () ;
-  overload* () ;
-  overload- () ;
-  overload= () ;
+  void set_radius(double) ;
+  double get_radius() const ;
+  double calc_circumference() const ;
+  double calc_area() const ;
+  Circle overload+ (Circle) const ;
+  Circle overload* (Circle) const ;
+  Circle overload- (Circle) const ;
+  Circle overload= (Circle) ;
 
   
 ```

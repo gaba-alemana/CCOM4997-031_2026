@@ -29,12 +29,20 @@ class IntArray {
         ~IntArray() {
             
             // If the pointer is not NULL (the array is not empty), delete the whole array
-            if (arr != NULL) delete[] arr ;
+            if (arr != NULL) {
+
+                delete[] arr ;
+                length = 0 ;
+                used = 0 ;
+            }
         }
 
         
         // Overload assignment operator 
         IntArray& operator= (IntArray &array2){
+
+            // Delete *this array
+            delete [] arr ;
 
             // Copy all attributes from other instance
             arr = array2.arr ;
@@ -62,9 +70,7 @@ class IntArray {
                 arr2.insert(*(arr + i)) ;
             }
 
-            delete[] arr ; // Eliminate array of this instance
             *this = arr2 ; // Copy other instance to this one
-
         }
 
 
@@ -72,7 +78,9 @@ class IntArray {
         void insert(int num) {
             
             if (used == length){
-                std::cout << "Dynamic array full, resize..." << std::endl ;
+        
+                this -> resize(1) ; // Add one more space to the array
+                this -> insert(num) ;
             }
 
             else{
@@ -88,18 +96,18 @@ class IntArray {
             
             if (arr == NULL){
                 std::cout << "The int array is empty." << std::endl ;
-                std::cout << used << " spaces used of " << length << std::endl << std::endl ;
             }
 
-            else{ 
+            else { 
                 std::cout << "Array: " ;
                 for (int i = 0; i < used; i++){
                     std::cout << *(arr + i) << " " ;
                 }
 
                 std::cout << std::endl ;
-                std::cout << used << " spaces used of " << length << std::endl << std::endl ;
             }
+
+            std::cout << used << " spaces used of " << length << std::endl << std::endl ;
         }
         
 
