@@ -38,21 +38,25 @@ class IntArray {
         }
 
         
-        // Overload assignment operator 
+        // Overload assignment operator (Move)
         IntArray& operator= (IntArray &array2){
 
-            // Delete *this array
-            delete [] arr ;
+            if (arr != array2.arr){
 
-            // Copy all attributes from other instance
-            arr = array2.arr ;
-            used = array2.used ;
-            length = array2.length ;
+                // Delete *this array
+                delete [] arr ;
 
-            // Change other array pointer to NULL and update attributes
-            array2.arr = NULL ;
-            array2.used = 0 ;
-            array2.length = 0 ;
+                // Copy all attributes from other instance
+                arr = array2.arr ;
+                used = array2.used ;
+                length = array2.length ;
+
+                // Cleaning other array object
+                array2.arr = NULL ;
+                array2.used = 0 ;
+                array2.length = 0 ;
+
+            }
 
             return *this ;
         }
@@ -109,8 +113,6 @@ class IntArray {
 
             std::cout << used << " spaces used of " << length << std::endl << std::endl ;
         }
-        
-
 
         // Exercise 1 Member Function
 
@@ -157,4 +159,34 @@ class IntArray {
 
             }
         }
+
+
+         // Friend function to overload << ostream 
+        friend std::ostream& operator<< (std::ostream &output, IntArray const &array) ;
 };
+
+
+// Friend function definition
+std::ostream& operator<< (std::ostream &output, IntArray const &array) {
+
+    if (array.arr == NULL){
+
+        output << "The int array is empty." << std::endl ;
+    }
+
+    else { 
+
+        output << "Array: " ;
+
+        for (int i = 0; i < array.used; i++){ 
+            output << *(array.arr + i) << " " ;
+        }
+        
+        output << std::endl ;
+    }
+
+    output << array.used << " spaces out of " << array.length << " are in use." ;
+
+    return output ;
+
+}

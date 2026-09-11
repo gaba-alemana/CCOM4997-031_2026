@@ -60,6 +60,8 @@ int main () {
     array_a.insert(5) ;
     array_a.display() ;
 
+    // Testing our ostream overloaded function
+    std::cout << array_a ;
 
     return 0 ;
 }
