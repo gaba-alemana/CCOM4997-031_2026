@@ -9,7 +9,7 @@ class Circle {
     private:
 
         double radius ;
-        const double pi = 3.1415 ; // Global constant pi
+        const double pi = 3.1415 ; // Constant pi
 
 
     // Defining methods (functions)
@@ -53,7 +53,7 @@ class Circle {
         // The keyword const indicates that the attributes of the object will not be changed. 
         double calc_circumference() const {
 
-            return radius * pi * 2 ;
+            return (radius) * (pi) * 2 ;
         }
 
 
@@ -85,6 +85,7 @@ class Circle {
                 Circle operator+ (Circle circle2) 
         */
 
+
         /*  Overloading the addition operator
             We want to be able to add circle objects  */ 
         Circle operator+ (Circle const &circle2) const {
@@ -113,8 +114,9 @@ class Circle {
             return Circle(radius - circle2.radius) ;
         }
 
+
         // Overloading the assignment operator to copy one circle instance into another
-        Circle& operator= (Circle const &circle2) {
+        Circle& operator= (Circle circle2) {
             
             // Checking if the instances are not the same
             if (radius != circle2.radius){
@@ -124,4 +126,26 @@ class Circle {
 
             return *this ; // Returns this class instance
         }
+
+
+        // Friend function
+
+        /*
+            A friend function has access to the private and protected members of a class, but it is not a member of the class itself.
+            We include the function prototype inside the class, but we define the function outside of it.
+        
+        */
+        
+        // Friend function prototype
+        friend std::ostream& operator<< (std::ostream &output, Circle const &circle) ;
 } ;
+
+// Definition of the operator << overload friend function
+std::ostream& operator<< (std::ostream &output, Circle const &circle){
+
+    output << "This circle has a radius of " << circle.get_radius() << " a circunference of" 
+    << circle.calc_circumference() << " and an area of " << circle.calc_area() << "." ;
+
+    return output ;
+
+}
