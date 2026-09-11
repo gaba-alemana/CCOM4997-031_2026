@@ -133,7 +133,6 @@ class Circle {
         /*
             A friend function has access to the private and protected members of a class, but it is not a member of the class itself.
             We include the function prototype inside the class, but we define the function outside of it.
-        
         */
         
         // Friend function prototype
@@ -143,7 +142,7 @@ class Circle {
 // Definition of the operator << overload friend function
 std::ostream& operator<< (std::ostream &output, Circle const &circle){
 
-    output << "This circle has a radius of " << circle.get_radius() << " a circunference of" 
+    output << "This circle has a radius of " << circle.get_radius() << " a circunference of " 
     << circle.calc_circumference() << " and an area of " << circle.calc_area() << "." ;
 
     return output ;
