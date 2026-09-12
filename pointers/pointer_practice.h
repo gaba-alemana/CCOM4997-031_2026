@@ -1,6 +1,7 @@
 # include <iostream>
 
 // Defining dynamic int array class for the exercises
+// The IntArray has Queue logic
 class IntArray {
 
     protected:
@@ -52,7 +53,7 @@ class IntArray {
                 length = array2.length ;
 
                 // Cleaning other array object
-                array2.arr = NULL ;
+                array2.arr = nullptr ;
                 array2.used = 0 ;
                 array2.length = 0 ;
 
@@ -74,6 +75,7 @@ class IntArray {
                 arr2.insert(*(arr + i)) ;
             }
 
+            // Manages memory leaks in definition of overloaded operator= 
             *this = arr2 ; // Copy other instance to this one
         }
 
@@ -95,6 +97,24 @@ class IntArray {
         }
 
 
+        // Delete int at the beginning of the array
+        void remove() {
+
+            if (used == 0){
+                std::cout << "The array is empty; no element to remove." << std::endl ;
+            }
+
+            else {
+
+                for(int i = 0; i < used; i++){
+                    arr[i] = arr[i + 1] ;
+                }
+
+                --used ;
+            }
+        }
+
+
         // Display the IntArray object (Other option: Overload the << insertion operator)
         void display() const {
             
@@ -104,18 +124,18 @@ class IntArray {
 
             else { 
                 std::cout << "Array: " ;
+
                 for (int i = 0; i < used; i++){
                     std::cout << *(arr + i) << " " ;
                 }
 
                 std::cout << std::endl ;
             }
-
             std::cout << used << " spaces used of " << length << std::endl << std::endl ;
         }
 
-        // Exercise 1 Member Function
 
+        // Exercise 1 Member Function
         // max()
         int* max() const {
 
@@ -137,9 +157,7 @@ class IntArray {
         }
 
 
-
         // Exercise 2 Member Function
-
         // swap()
         void swap() {
 
@@ -155,13 +173,39 @@ class IntArray {
                 *(arr + i) = *(arr + k) ; 
                 *(arr + k) = temp ; 
 
-                // std::cout << *(arr + i) << std::endl ;
-
             }
         }
 
 
-         // Friend function to overload << ostream 
+        // Overloading operators
+
+        // Overloading comparison > operator for IntArrays 
+        bool operator> (IntArray const &array2) const {
+
+            bool result = false ;
+
+            if (length > array2.length){
+                result = true ;
+            }
+
+            return result ;
+        }
+
+
+        // Overloading comparison == operator for IntArrays 
+        bool operator== (IntArray const &array2) const {
+
+            bool result = false ;
+
+            if (length == array2.length){
+                result = true ;
+            }
+
+            return result ;
+        }
+
+
+        // Friend function to overload << ostream 
         friend std::ostream& operator<< (std::ostream &output, IntArray const &array) ;
 };
 
@@ -170,7 +214,6 @@ class IntArray {
 std::ostream& operator<< (std::ostream &output, IntArray const &array) {
 
     if (array.arr == NULL){
-
         output << "The int array is empty." << std::endl ;
     }
 
@@ -185,8 +228,7 @@ std::ostream& operator<< (std::ostream &output, IntArray const &array) {
         output << std::endl ;
     }
 
-    output << array.used << " spaces out of " << array.length << " are in use." ;
-
+    output << array.used << " spaces out of " << array.length << " are in use." << std::endl << std::endl ;
     return output ;
 
 }

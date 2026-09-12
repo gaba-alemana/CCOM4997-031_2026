@@ -23,11 +23,11 @@ int main () {
     }
 
     // Display array
-    array_a.display() ;
+    std::cout << array_a ;
 
 
     /* Exercise 1: Create a member function called max() for the IntArray class that...
-       iterates through the array with pointers, finds the biggest integer, and returns the pointer to that int.
+       iterates through the array using pointer arithmetic, finds the biggest integer, and returns the pointer to that int.
        Test it in main. 
     */
 
@@ -38,30 +38,34 @@ int main () {
 
 
     /* Exercise 2: Create a void member function called swap() for the IntArray class that...
-       iterates through the array with pointers, and swaps the elements of the array.
+       iterates through the array using pointer arithmetic, and swaps the elements of the array.
        Test it in main. 
     */
 
     // Call swap()
     array_a.swap() ;
     std::cout << "After swap..." << std::endl ;
-    array_a.display() ;
+    std::cout << array_a ;
 
 
     // Testing array resize
     array_a.resize(2) ;
     std::cout << "Displaying array after resizing..." << std::endl ;
-    array_a.display() ;
+    std::cout << array_a;
 
     array_a.insert(9) ;
-    array_a.display() ;
-    array_a.insert(25) ;
-    array_a.display() ;
-    array_a.insert(5) ;
-    array_a.display() ;
-
-    // Testing our ostream overloaded function
     std::cout << array_a ;
+    array_a.insert(25) ;
+    std::cout << array_a ;
+    array_a.insert(5) ;
+    std::cout << array_a ;
+
+    // Deleting elements of the IntArray queue
+    array_a.remove() ;
+    std::cout << array_a ;
+
+    // Testing comparison overloaded operators
+    std::cout << (array_a > array_b) << std::endl << (array_a == array_b) << std::endl ;
 
     return 0 ;
 }
