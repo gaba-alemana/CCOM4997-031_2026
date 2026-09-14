@@ -47,5 +47,9 @@ int main() {
     // Testing overloaded <<
     std::cout << circle5 ;
 
+    // Testing overloaded operator+ with int
+    circle5 = 4 + circle4 ;
+    std::cout << circle5 ;
+
     return 0 ;
 }

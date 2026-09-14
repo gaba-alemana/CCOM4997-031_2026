@@ -128,6 +128,13 @@ class Circle {
         }
 
 
+        // Overloading the addition operator to add a Circle type object with an integer
+        Circle operator+ (int num) const {
+
+            return Circle(radius + num) ;
+        } 
+
+
         // Friend function
 
         /*
@@ -137,14 +144,23 @@ class Circle {
         
         // Friend function prototype
         friend std::ostream& operator<< (std::ostream &output, Circle const &circle) ;
+        friend Circle operator+ (int num, Circle const &circle) ;
+
 } ;
+
 
 // Definition of the operator << overload friend function
 std::ostream& operator<< (std::ostream &output, Circle const &circle){
 
     output << "This circle has a radius of " << circle.get_radius() << " a circunference of " 
-    << circle.calc_circumference() << " and an area of " << circle.calc_area() << "." ;
+    << circle.calc_circumference() << " and an area of " << circle.calc_area() << "." << std::endl ;
 
     return output ;
 
 }
+
+// Overloading the addition operator to an integer with a Circle object
+        Circle operator+ (int num, Circle const &circle) {
+
+            return Circle(circle.radius + num) ;
+        } 
