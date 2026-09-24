@@ -72,10 +72,9 @@ class IntArray {
             // Save the elements of this array in the new instance array
             for(int i = 0; i < used; i++){
 
-                arr2.insert(*(arr + i)) ;
+                arr2.insert(arr[i]) ;
             }
 
-            // Manages memory leaks in definition of overloaded operator= 
             *this = arr2 ; // Copy other instance to this one
         }
 
@@ -126,7 +125,7 @@ class IntArray {
                 std::cout << "Array: " ;
 
                 for (int i = 0; i < used; i++){
-                    std::cout << *(arr + i) << " " ;
+                    std::cout << arr[i] << " " ;
                 }
 
                 std::cout << std::endl ;
