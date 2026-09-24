@@ -19,10 +19,15 @@ public:
   double get_radius() const ;
   double calc_circumference() const ;
   double calc_area() const ;
-  Circle overload+ (Circle) const ;
-  Circle overload* (Circle) const ;
-  Circle overload- (Circle) const ;
-  Circle overload= (Circle) ;
+  Circle operator+ (Circle) const ;
+  Circle operator+ (int) const ;
+  Circle operator* (Circle) const ;
+  Circle operator- (Circle) const ;
+  Circle operator= (Circle) ;
+  friend ostream& operator<< (ostream, Circle) ;
+  friend Circle operator+ (int, Circle) ;
 
   
 ```
+
+### En esta clase Círculo, estudiamos la sobrecarga de operadores y el uso de funciones amigas.

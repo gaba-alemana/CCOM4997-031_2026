@@ -159,8 +159,10 @@ std::ostream& operator<< (std::ostream &output, Circle const &circle){
 
 }
 
-// Overloading the addition operator to an integer with a Circle object
-        Circle operator+ (int num, Circle const &circle) {
 
-            return Circle(circle.radius + num) ;
-        } 
+// Overloading the addition operator to an integer with a Circle object
+Circle operator+ (int num, Circle const &circle) {
+
+    return Circle(circle.radius + num) ;
+    
+} 

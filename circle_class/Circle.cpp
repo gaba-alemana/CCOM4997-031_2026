@@ -45,7 +45,7 @@ int main() {
     std::cout << "The radius of circle5 is: " << circle5.get_radius() << "\n\n" ;
 
     // Testing overloaded <<
-    std::cout << circle5 ;
+    std::cout << "Testing overloaded<< operator:\n" << circle5 ;
 
     // Testing overloaded operator+ with int
     circle5 = 4 + circle4 ;
