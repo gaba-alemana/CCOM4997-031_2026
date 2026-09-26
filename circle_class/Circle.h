@@ -107,11 +107,8 @@ class Circle {
         Circle operator- (Circle const &circle2) const {
 
             double sub = radius - circle2.radius ;
-            if (sub < 0){
-                throw std::invalid_argument("The radius of a circle must be a positive number.") ;
-            }
 
-            return Circle(radius - circle2.radius) ;
+            return Circle(sub) ;
         }
 
 
