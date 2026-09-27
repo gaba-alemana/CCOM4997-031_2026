@@ -16,6 +16,10 @@ class IntArray {
 
         // Set length of dynamic array
         void set_length(int len) {
+
+            if (length < 0){
+                throw std::invalid_argument("The length of the array must be positive.") ;
+            }
             
             length = len;
             arr = new int[length];
@@ -117,7 +121,7 @@ class IntArray {
         // Display the IntArray object (Other option: Overload the << insertion operator)
         void display() const {
             
-            if (arr == NULL){
+            if (used == 0){
                 std::cout << "The int array is empty." << std::endl ;
             }
 
@@ -138,21 +142,23 @@ class IntArray {
         // max()
         int* max() const {
 
-            int max_num = 0 ; // Variable to store the biggest int
-            int * ptr_max = NULL ; // Variable to store the pointer
+            if (used == 0){
+                throw std::invalid_argument("The list is empty.") ;
+            }
+
+            int *max_num = arr ; // Variable to store the biggest int
 
             // Iterate through the IntArray
-            for (int i = 0; i < used; i++){
+            for (int i = 1; i < used; i++){
 
                 // Save the number and its pointer if its bigger than the int stored in max_num
-                if (*(arr + i) > max_num){
+                if (*(arr + i) > *max_num){
 
-                    max_num = *(arr + i) ;
-                    ptr_max = arr + i ;
+                    max_num = arr + i ;
                 }
             }
 
-            return ptr_max ;
+            return max_num ;
         }
 
 

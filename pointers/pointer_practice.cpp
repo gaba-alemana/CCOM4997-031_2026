@@ -11,7 +11,6 @@ int main () {
 
     int len = 10 ;
     IntArray array_a(len), array_b(len) ; // Create instance of an IntArray
-
     
     // Initializing array with random numbers
     srand(time(0)) ; // Use the current time as a seed so that rand() returns different ints on each run
