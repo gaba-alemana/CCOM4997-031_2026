@@ -106,12 +106,9 @@ class Circle {
             We want to be able to subtract circle objects  */ 
         Circle operator- (Circle const &circle2) const {
 
-            int sub = radius - circle2.radius ;
-            if (sub < 0){
-                throw std::invalid_argument("The radius of a circle must be a positive number.") ;
-            }
+            double sub = radius - circle2.radius ;
 
-            return Circle(radius - circle2.radius) ;
+            return Circle(sub) ;
         }
 
 
