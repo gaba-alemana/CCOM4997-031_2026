@@ -17,14 +17,14 @@ int main() {
 
 
     // Initializing object circle2 with the parameterized constructor
-    Circle circle2 = Circle(12) ;
+    Circle circle2(12) ;
     std::cout << "The radius of circle2 is: " << circle2.get_radius() << "\n\n" ;
 
 
     // Creating a new circle instance with the sum of both previous circles
     // This is possible because we overloaded the addition (+) operator
     std::cout << "Adding the radius of circle1 and circle2 to create circle3!" << std::endl ;
-    Circle circle3 = circle1 + circle2 ;
+    Circle circle3(circle1 + circle2) ;
 
     std::cout << "The radius of circle3 is: " << circle3.get_radius() << std::endl ;
     std::cout << "The circumference of circle3 is: " << circle3.calc_circumference() << std::endl ;
@@ -33,7 +33,7 @@ int main() {
 
     // Defining and initializing circle4 as the multiplication of circle1 and circle2
     std::cout << "Multiplying the radius of circle1 and circle2 to create circle4!" << std::endl ;
-    Circle circle4 = circle1 * circle2 ;
+    Circle circle4(circle1 * circle2) ;
     std::cout << "The radius of circle4 is: " << circle4.get_radius() << "\n\n" ;
 
 
